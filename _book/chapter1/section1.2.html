@@ -1,8 +1,8 @@
 <!DOCTYPE HTML>
 <html lang="en" >
-    
+    <!-- Start book Introduction -->
     <head>
-        
+        <!-- head:start -->
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <title>理解 JavaScript 的浮点数 | Introduction</title>
@@ -19,6 +19,14 @@
         <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
         
     <link rel="stylesheet" href="../gitbook/style.css">
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-theme-comscore/test.css">
+        
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-disqus/plugin.css">
+        
     
         
         <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-highlight/website.css">
@@ -43,17 +51,17 @@
     <link rel="prev" href="../chapter1/section1.1.html" />
     
 
-        
+        <!-- head:end -->
     </head>
     <body>
-        
+        <!-- body:start -->
         
     <div class="book"
         data-level="1.2"
         data-chapter-title="理解 JavaScript 的浮点数"
         data-filepath="chapter1/section1.2.md"
         data-basepath=".."
-        data-revision="Sun Jan 10 2016 15:21:50 GMT+0800 (中国标准时间)"
+        data-revision="Sun Jan 10 2016 16:28:08 GMT+0800 (中国标准时间)"
         data-innerlanguage="">
     
 
@@ -278,6 +286,22 @@
                     <section class="normal" id="section-">
                     
                         <h1 id="&#x7B2C;2&#x6761;-&#x7406;&#x89E3;-javascript-&#x7684;&#x6D6E;&#x70B9;&#x6570;">&#x7B2C;2&#x6761; &#x7406;&#x89E3; JavaScript &#x7684;&#x6D6E;&#x70B9;&#x6570;</h1>
+<blockquote>
+<ul>
+<li>JavaScript&#x7684;&#x6570;&#x5B57;&#x90FD;&#x662F;&#x53CC;&#x7CBE;&#x5EA6;&#x7684;&#x6D6E;&#x70B9;&#x6570;&#x3002;</li>
+<li>JavaScript&#x7684;&#x6574;&#x6570;&#x4EC5;&#x4EC5;&#x662F;&#x53CC;&#x7CBE;&#x5EA6;&#x6D6E;&#x70B9;&#x6570;&#x7684;&#x4E00;&#x4E2A;&#x5B50;&#x96C6;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x4E00;&#x4E2A;&#x5355;&#x72EC;&#x7684;&#x6570;&#x636E;&#x7C7B;&#x578B;&#x3002;</li>
+<li>&#x4F4D;&#x8FD0;&#x7B97;&#x7B26;&#x5C06;&#x6570;&#x5B57;&#x89C6;&#x4E3A;32&#x4F4D;&#x7684;&#x6709;&#x7B26;&#x53F7;&#x6574;&#x6570;&#x3002;</li>
+<li>&#x5F53;&#x5FC3;&#x6D6E;&#x70B9;&#x8FD0;&#x7B97;&#x4E2D;&#x7684;&#x7CBE;&#x5EA6;&#x9677;&#x9631;&#x3002;</li>
+</ul>
+</blockquote>
+<p>&#x4F4D;&#x8FD0;&#x7B97;&#x4E2D;&#xFF0C;&#x5148;&#x5C06;&#x6D6E;&#x70B9;&#x6570;&#x9690;&#x5F0F;&#x7684;&#x8F6C;&#x6362;&#x4E3A;32&#x4F4D;&#x6574;&#x6570;&#xFF08;32&#x4F4D;&#x5927;&#x7AEF;big-endian&#xFF09;&#x540E;&#x518D;&#x8FDB;&#x884C;&#x8FD0;&#x7B97;&#x3002;&#x4F8B;&#x5982;&#xFF1A;</p>
+<pre><code>7 | 2; //7
+</code></pre><p>&#x5148;&#x5C06;7&#x8F6C;&#x5316;&#x4E3A;32&#x4F4D;2&#x8FDB;&#x5236;&#x7684;&#x6570;&#xFF1A;111&#xFF0C;&#x8FD9;&#x91CC;&#x6211;&#x7701;&#x7565;&#x4E86;1&#x524D;&#x9762;&#x7684;0&#x3002;2&#x8F6C;&#x5316;&#x4E3A;&#xFF1A;10&#x3002;</p>
+<p>&#x7136;&#x540E;111&#x4E0E;010&#x8FDB;&#x884C;&#x6216;&#x8FD0;&#x7B97;&#xFF0C;&#x7ED3;&#x679C;&#x4E3A;&#xFF1A;111&#x3002;&#x518D;&#x8F6C;&#x5316;&#x4E3A;10&#x8FDB;&#x5236;&#xFF0C;&#x7ED3;&#x679C;&#x4E3A;7&#x3002;</p>
+<p><strong>&#x6240;&#x6709;&#x7684;&#x4F4D;&#x8FD0;&#x7B97;&#x7684;&#x4E2D;&#x4F5C;&#x65B9;&#x5F0F;&#x90FD;&#x662F;&#x76F8;&#x540C;&#x7684;&#xFF0C;&#x4ED6;&#x4EEC;&#x5C06;&#x64CD;&#x4F5C;&#x6570;&#x8F6C;&#x5316;&#x4E3A;&#x6574;&#x6570;&#xFF0C;&#x7136;&#x540E;&#x4F7F;&#x7528;&#x6574;&#x6570;&#x4F4D;&#x6A21;&#x5F0F;&#x8FDB;&#x884C;&#x8FD0;&#x7B97;&#xFF0C;&#x6700;&#x540E;&#x5C06;&#x7ED3;&#x679C;&#x8F6C;&#x5316;&#x4E3A;&#x6807;&#x51C6;&#x7684; JavaScript &#x6D6E;&#x70B9;&#x6570;&#x3002;</strong></p>
+<p><strong>&#x6700;&#x540E;&#x662F;&#x5173;&#x4E8E;&#x6D6E;&#x70B9;&#x6570;&#x4E0D;&#x7CBE;&#x786E;&#x7684;&#x95EE;&#x9898;&#x3002;</strong>&#x5176;&#x539F;&#x56E0;&#x662F;&#x5728;&#x8F6C;&#x5316;&#x4E3A;2&#x8FDB;&#x5236;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5316;&#x4E0D;&#x5C3D;&#xFF0C;&#x5BFC;&#x81F4;&#x7684;&#x8BEF;&#x5DEE;&#x3002;&#x89E3;&#x51B3;&#x65B9;&#x6848;&#x662F;&#x5C3D;&#x53EF;&#x80FD;&#x91C7;&#x53D6;&#x6574;&#x6570;&#x503C;&#x8FD0;&#x7B97;&#x3002;&#x5C3D;&#x53EF;&#x80FD;&#x8F6C;&#x5316;&#x4E3A;&#x5C0F;&#x7684;&#x5355;&#x4F4D;&#x8FDB;&#x884C;&#x8FD0;&#x7B97;&#x3002;</p>
+<p>&#x4F4D;&#x7B97;&#x672F;&#x8FD0;&#x7B97;&#x7B26;&#x6709;&#xFF1A;~, &amp;, ^, |</p>
+<p>&#x79FB;&#x4F4D;&#x8FD0;&#x7B97;&#x7B26;&#xFF1A;&lt;&lt;, &gt;&gt;, &gt;&gt;&gt;</p>
 
                     
                     </section>
@@ -298,6 +322,18 @@
 
         
 <script src="../gitbook/app.js"></script>
+
+    
+    <script src="../gitbook/plugins/gitbook-theme-comscore/test.js"></script>
+    
+
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/URI.js/1.16.1/URI.min.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-disqus/plugin.js"></script>
+    
 
     
     <script src="../gitbook/plugins/gitbook-plugin-search/lunr.min.js"></script>
@@ -321,12 +357,12 @@
 
 <script>
 require(["gitbook"], function(gitbook) {
-    var config = {"highlight":{},"search":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"livereload":{}};
+    var config = {"disqus":{"shortName":"effectivejavascript","useIdentifier":false},"gitbook-theme-comscore":{},"highlight":{},"search":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"livereload":{}};
     gitbook.start(config);
 });
 </script>
 
-        
+        <!-- body:end -->
     </body>
-    
+    <!-- End of book Introduction -->
 </html>

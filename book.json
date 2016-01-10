@@ -1,0 +1,11 @@
+{
+    "plugins": [
+        "gitbook-theme-comscore",
+        "disqus"
+    ],
+    "pluginsConfig": {
+        "disqus": {
+            "shortName": "effectivejavascript"
+        }
+    }
+}
