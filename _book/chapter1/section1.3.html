@@ -57,7 +57,7 @@
         data-chapter-title="当心隐式的强制转换"
         data-filepath="chapter1/section1.3.md"
         data-basepath=".."
-        data-revision="Sun Jan 10 2016 21:46:56 GMT+0800 (中国标准时间)"
+        data-revision="Sun Jan 10 2016 22:13:29 GMT+0800 (中国标准时间)"
         data-innerlanguage="">
     
 
@@ -324,7 +324,10 @@ b !== b;<span class="hljs-comment">//false</span>
 }};
 <span class="hljs-number">2</span> * object;<span class="hljs-comment">//6</span>
 </code></pre>
-<p>&#x5373;&#xFF1A;<strong>&#x5BF9;&#x8C61;&#x901A;&#x8FC7;<code>valueOf()</code>&#x65B9;&#x6CD5;&#x5F3A;&#x5236;&#x8F6C;&#x5316;&#x4E3A;&#x6570;&#x5B57;&#xFF0C;&#x901A;&#x8FC7;<code>toString()</code>&#x65B9;&#x6CD5;&#x5F3A;&#x5236;&#x8F6C;&#x5316;&#x4E3A;&#x5B57;&#x7B26;&#x4E32;&#x3002;</strong></p>
+<p>&#x5373;&#xFF1A;</p>
+<ul>
+<li><strong>&#x5BF9;&#x8C61;&#x901A;&#x8FC7;<code>valueOf()</code>&#x65B9;&#x6CD5;&#x5F3A;&#x5236;&#x8F6C;&#x5316;&#x4E3A;&#x6570;&#x5B57;&#xFF0C;&#x901A;&#x8FC7;<code>toString()</code>&#x65B9;&#x6CD5;&#x5F3A;&#x5236;&#x8F6C;&#x5316;&#x4E3A;&#x5B57;&#x7B26;&#x4E32;&#x3002;</strong></li>
+</ul>
 <p>&#x4F46;&#x662F;&#xFF0C;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x540C;&#x65F6;&#x6709;<code>toString</code>&#x548C;<code>valueOf</code>&#x65F6;&#xFF1A;</p>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> obj = {
     toString:<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
@@ -343,6 +346,43 @@ b !== b;<span class="hljs-comment">//false</span>
 <p>&#x8FD9;&#x6837;&#x5C31;&#x4E0D;&#x4F1A;&#x7D0A;&#x4E71;&#x4E86;&#x3002;&#x5E76;&#x4E14;&#x5982;&#x679C;&#x5BF9;&#x8C61;&#x4E0D;&#x662F;&#x6570;&#x5B57;&#x7684;&#x62BD;&#x8C61;&#x7684;&#x8BDD;&#xFF0C;&#x5E94;&#x8BE5;&#x5C3D;&#x91CF;&#x907F;&#x514D;&#x4F7F;&#x7528;<code>valueOf</code>&#x65B9;&#x6CD5;&#x3002;</p>
 <p>&#x6700;&#x540E;&#x8BF4;&#x8BF4;&#x771F;&#x503C;&#x8FD0;&#x7B97;&#x3002;</p>
 <p>&#x5927;&#x591A;&#x6570;&#x7684; JavaScript &#x503C;&#x90FD;&#x4E3A;&#x771F;&#x503C;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x80FD;&#x9690;&#x5F0F;&#x7684;&#x8F6C;&#x6362;&#x4E3A; true&#x3002;</p>
+<p>JavaScript &#x4E2D;&#x6709;7&#x4E2A;&#x5047;&#x503C;&#xFF1A;false, 0, -0, &quot;&quot;, NaN, null, undefined.</p>
+<pre><code class="lang-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">point</span>(<span class="hljs-params">x,y</span>) </span>{
+    <span class="hljs-keyword">if</span> (!x) {
+        x = <span class="hljs-number">320</span>;
+    }
+    <span class="hljs-keyword">if</span> (!y) {
+        y=<span class="hljs-number">240</span>;
+    }
+    <span class="hljs-keyword">return</span>{
+        x:x,
+        y:y
+    }
+}
+</code></pre>
+<p>&#x6B64;&#x51FD;&#x6570;&#x4F1A;&#x5FFD;&#x7565;&#x4EFB;&#x4F55;&#x4E3A;&#x5047;&#x503C;&#x7684;&#x53C2;&#x6570;&#xFF0C;&#x5305;&#x62EC;0&#x3002;&#x5E94;&#x8BE5;&#x4F7F;&#x7528;&#x5982;&#x4E0B;&#x4EE3;&#x7801;&#x3002;</p>
+<pre><code class="lang-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">point</span>(<span class="hljs-params">x,y</span>) </span>{
+    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> x ===<span class="hljs-string">&apos;undefined&apos;</span>) {
+        x = <span class="hljs-number">320</span>;
+    }
+    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> y ===<span class="hljs-string">&apos;undefined&apos;</span>) {
+        y = <span class="hljs-number">240</span>;
+    }
+    <span class="hljs-keyword">return</span>{
+        x:x,
+        y:y
+    }
+}
+</code></pre>
+<p>&#x6216;</p>
+<pre><code class="lang-js"><span class="hljs-keyword">if</span> (x === <span class="hljs-literal">undefined</span>) {
+    ......
+}
+</code></pre>
+<p>&#x5373;&#xFF1A;</p>
+<ul>
+<li><strong>&#x6D4B;&#x8BD5;&#x4E00;&#x4E2A;&#x503C;&#x662F;&#x5426;&#x4E3A;&#x672A;&#x5B9A;&#x4E49;&#x7684;&#x503C;&#xFF0C;&#x5E94;&#x8BE5;&#x4F7F;&#x7528;<code>typeof</code>&#x6216;&#x8005;&#x4E0E;<code>undefined</code>&#x8FDB;&#x884C;&#x6BD4;&#x8F83;&#x800C;&#x4E0D;&#x662F;&#x4F7F;&#x7528;&#x771F;&#x503C;&#x8FD0;&#x7B97;&#x3002;</strong></li>
+</ul>
 
                     
                     </section>
