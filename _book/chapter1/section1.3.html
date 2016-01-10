@@ -57,7 +57,7 @@
         data-chapter-title="当心隐式的强制转换"
         data-filepath="chapter1/section1.3.md"
         data-basepath=".."
-        data-revision="Sun Jan 10 2016 16:38:59 GMT+0800 (中国标准时间)"
+        data-revision="Sun Jan 10 2016 21:46:56 GMT+0800 (中国标准时间)"
         data-innerlanguage="">
     
 
@@ -296,6 +296,53 @@
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> x = <span class="hljs-literal">NaN</span>;
 x === <span class="hljs-literal">NaN</span>;<span class="hljs-comment">//false</span>
 </code></pre>
+<p>&#x6807;&#x51C6;&#x5E93;&#x51FD;&#x6570;<code>isNaN</code>&#x4E5F;&#x4E0D;&#x53EF;&#x9760;&#x3002;&#x56E0;&#x4E3A;&#x5BF9;&#x4E8E;&#x7C7B;&#x578B;&#x5DF2;&#x77E5;&#x662F;&#x6570;&#x5B57;&#x7684;&#xFF0C;&#x6CA1;&#x6709;&#x95EE;&#x9898;&#x3002;&#x4F46;&#x662F;&#x5BF9;&#x4E8E;&#x5176;&#x4ED6;&#x7EDD;&#x5BF9;&#x4E0D;&#x662F;<code>NaN</code>&#xFF0C;&#x4F46;&#x4F1A;&#x88AB;&#x5F3A;&#x5236;&#x8F6C;&#x6362;&#x4E3A;<code>NaN</code>&#x7684;&#x503C;&#xFF0C;&#x4F7F;&#x7528;&#x6B64;&#x65B9;&#x6CD5;&#x65E0;&#x6548;&#x3002;&#x4F8B;&#x5982;&#xFF1A;</p>
+<pre><code class="lang-js"><span class="hljs-built_in">isNaN</span>(<span class="hljs-literal">NaN</span>);<span class="hljs-comment">//true</span>
+<span class="hljs-built_in">isNaN</span>(<span class="hljs-string">&apos;aaaaString&apos;</span>);<span class="hljs-comment">//true</span>
+<span class="hljs-built_in">isNaN</span>(<span class="hljs-literal">undefined</span>);<span class="hljs-comment">//true</span>
+<span class="hljs-built_in">isNaN</span>({});<span class="hljs-comment">//true</span>
+<span class="hljs-built_in">isNaN</span>({a:<span class="hljs-string">&apos;a&apos;</span>});<span class="hljs-comment">//true</span>
+</code></pre>
+<p>&#x7531;&#x4E8E;<code>NaN</code>&#x662F;&#x552F;&#x4E00;&#x4E00;&#x4E2A;&#x4E0D;&#x7B49;&#x4E8E;&#x81EA;&#x8EAB;&#x7684;&#x503C;&#xFF0C;&#x6240;&#x4EE5;&#x53EF;&#x4EE5;&#x7528;&#x662F;&#x5426;&#x4E0E;&#x81EA;&#x8EAB;&#x76F8;&#x7B49;&#x7684;&#x65B9;&#x6CD5;&#x68C0;&#x6D4B;&#x3002;</p>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> a = <span class="hljs-literal">NaN</span>;
+a !== a;<span class="hljs-comment">//true</span>
+<span class="hljs-keyword">var</span> b = <span class="hljs-number">10</span>;
+b !== b;<span class="hljs-comment">//false</span>
+</code></pre>
+<p>&#x53EF;&#x4EE5;&#x5C06;&#x8FD9;&#x4E2A;&#x7279;&#x6027;&#x62BD;&#x8C61;&#x4E3A;&#x4E00;&#x4E2A;&#x5B9E;&#x7528;&#x5DE5;&#x5177;&#x51FD;&#x6570;</p>
+<pre><code class="lang-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">isReallyNaN</span>(<span class="hljs-params">a</span>) </span>{
+    <span class="hljs-keyword">return</span> x !== x;
+}
+</code></pre>
+<p>&#x5BF9;&#x8C61;&#x4E5F;&#x4F1A;&#x88AB;&#x5F3A;&#x5236;&#x8F6C;&#x6362;&#x4E3A;&#x539F;&#x59CB;&#x503C;&#x3002;&#x6700;&#x5E38;&#x89C1;&#x4E3A;&#x5B57;&#x7B26;&#x4E32;&#xFF1A;</p>
+<pre><code class="lang-js"><span class="hljs-string">&apos;the Math Object:&apos;</span> + <span class="hljs-built_in">Math</span>;<span class="hljs-comment">//&quot;the Math Object:[object Math]&quot;</span>
+</code></pre>
+<p>&#x5BF9;&#x8C61;&#x9690;&#x5F0F;&#x8C03;&#x7528;&#x4E86;&#x81EA;&#x8EAB;&#x7684;<code>toString</code>&#x65B9;&#x6CD5;&#x8F6C;&#x6362;&#x4E3A;&#x5B57;&#x7B26;&#x4E32;&#x3002;</p>
+<p>&#x7C7B;&#x4F3C;&#x7684;&#xFF0C;&#x5BF9;&#x8C61;&#x4E5F;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x5176;<code>valueOf</code>&#x65B9;&#x6CD5;&#x8F6C;&#x6362;&#x4E3A;&#x6570;&#x5B57;&#x3002;</p>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> object = { valueOf:<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">return</span> <span class="hljs-number">3</span>;
+}};
+<span class="hljs-number">2</span> * object;<span class="hljs-comment">//6</span>
+</code></pre>
+<p>&#x5373;&#xFF1A;<strong>&#x5BF9;&#x8C61;&#x901A;&#x8FC7;<code>valueOf()</code>&#x65B9;&#x6CD5;&#x5F3A;&#x5236;&#x8F6C;&#x5316;&#x4E3A;&#x6570;&#x5B57;&#xFF0C;&#x901A;&#x8FC7;<code>toString()</code>&#x65B9;&#x6CD5;&#x5F3A;&#x5236;&#x8F6C;&#x5316;&#x4E3A;&#x5B57;&#x7B26;&#x4E32;&#x3002;</strong></p>
+<p>&#x4F46;&#x662F;&#xFF0C;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x540C;&#x65F6;&#x6709;<code>toString</code>&#x548C;<code>valueOf</code>&#x65F6;&#xFF1A;</p>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> obj = {
+    toString:<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-string">&apos;[object MyObject]&apos;</span>;
+    },
+    valueOf:<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-number">17</span>;
+    }
+}
+<span class="hljs-string">&apos;abc&apos;</span> + obj;<span class="hljs-comment">//&quot;abc17&quot;</span>
+</code></pre>
+<p>&#x8FD9;&#x4E2A;&#x4F8B;&#x5B50;&#x8BF4;&#x660E;&#xFF0C;<code>valueOf</code>&#x624D;&#x662F;&#x771F;&#x6B63;&#x4E3A;&#x54EA;&#x4E9B;&#x4EE3;&#x8868;&#x6570;&#x503C;&#x7684;&#x5BF9;&#x8C61;&#x800C;&#x8BBE;&#x8BA1;&#x7684;&#x3002;&#x6240;&#x4EE5;&#x5F15;&#x51FA;&#x4E86;&#x6211;&#x4EEC;&#x5F00;&#x7BC7;&#x8BF4;&#x5230;&#x7684;&#x7B2C;4&#x6761;&#xFF1A;</p>
+<ul>
+<li><strong>&#x5177;&#x6709;<code>valueOf()</code>&#x65B9;&#x6CD5;&#x7684;&#x5BF9;&#x8C61;&#x5E94;&#x8BE5;&#x5B9E;&#x73B0;<code>toString()</code>&#x65B9;&#x6CD5;&#xFF0C;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;<code>valueOf()</code>&#x65B9;&#x6CD5;&#x4EA7;&#x751F;&#x7684;&#x6570;&#x5B57;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#x8868;&#x793A;&#x3002;</strong></li>
+</ul>
+<p>&#x8FD9;&#x6837;&#x5C31;&#x4E0D;&#x4F1A;&#x7D0A;&#x4E71;&#x4E86;&#x3002;&#x5E76;&#x4E14;&#x5982;&#x679C;&#x5BF9;&#x8C61;&#x4E0D;&#x662F;&#x6570;&#x5B57;&#x7684;&#x62BD;&#x8C61;&#x7684;&#x8BDD;&#xFF0C;&#x5E94;&#x8BE5;&#x5C3D;&#x91CF;&#x907F;&#x514D;&#x4F7F;&#x7528;<code>valueOf</code>&#x65B9;&#x6CD5;&#x3002;</p>
+<p>&#x6700;&#x540E;&#x8BF4;&#x8BF4;&#x771F;&#x503C;&#x8FD0;&#x7B97;&#x3002;</p>
+<p>&#x5927;&#x591A;&#x6570;&#x7684; JavaScript &#x503C;&#x90FD;&#x4E3A;&#x771F;&#x503C;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x80FD;&#x9690;&#x5F0F;&#x7684;&#x8F6C;&#x6362;&#x4E3A; true&#x3002;</p>
 
                     
                     </section>
