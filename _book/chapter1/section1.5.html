@@ -57,7 +57,7 @@
         data-chapter-title="避免对混合类型使用 == 运算符"
         data-filepath="chapter1/section1.5.md"
         data-basepath=".."
-        data-revision="Mon Jan 11 2016 17:48:13 GMT+0800 (中国标准时间)"
+        data-revision="Tue Jan 12 2016 21:12:44 GMT+0800 (中国标准时间)"
         data-innerlanguage="">
     
 
@@ -282,6 +282,50 @@
                     <section class="normal" id="section-">
                     
                         <h1 id="&#x7B2C;5&#x6761;-&#x907F;&#x514D;&#x5BF9;&#x6DF7;&#x5408;&#x7C7B;&#x578B;&#x4F7F;&#x7528;--&#x8FD0;&#x7B97;&#x7B26;">&#x7B2C;5&#x6761; &#x907F;&#x514D;&#x5BF9;&#x6DF7;&#x5408;&#x7C7B;&#x578B;&#x4F7F;&#x7528; == &#x8FD0;&#x7B97;&#x7B26;</h1>
+<ul>
+<li>&#x5F53;&#x53C2;&#x6570;&#x7C7B;&#x578B;&#x4E0D;&#x540C;&#x65F6;&#xFF0C;== &#x8FD0;&#x7B97;&#x7B26;&#x5E94;&#x7528;&#x4E86;&#x4E00;&#x5957;&#x96BE;&#x4EE5;&#x7406;&#x89E3;&#x7684;&#x9690;&#x5F0F;&#x5F3A;&#x5236;&#x8F6C;&#x6362;&#x89C4;&#x5219;&#x3002;</li>
+<li>&#x4F7F;&#x7528; === &#x8FD0;&#x7B97;&#x7B26;&#xFF0C;&#x4F7F;&#x8BFB;&#x8005;&#x4E0D;&#x9700;&#x8981;&#x6D89;&#x53CA;&#x4EFB;&#x4F55;&#x7684;&#x9690;&#x5F0F;&#x5F3A;&#x5236;&#x8F6C;&#x6362;&#x5C31;&#x80FD;&#x660E;&#x767D;&#x4F60;&#x7684;&#x6BD4;&#x8F83;&#x8FD0;&#x7B97;&#x3002;</li>
+<li>&#x5F53;&#x6BD4;&#x8F83;&#x4E0D;&#x540C;&#x7C7B;&#x578B;&#x7684;&#x503C;&#x65F6;&#xFF0C;&#x4F7F;&#x7528;&#x4F60;&#x81EA;&#x5DF1;&#x7684;&#x663E;&#x793A;&#x5F3A;&#x5236;&#x8F6C;&#x6362;&#x4F7F;&#x7A0B;&#x5E8F;&#x7684;&#x884C;&#x4E3A;&#x66F4;&#x6E05;&#x6670;&#x3002;</li>
+</ul>
+<hr>
+<p>&#x5F53;&#x4E24;&#x4E2A;&#x53C2;&#x6570;&#x5C5E;&#x4E8E;&#x540C;&#x4E00;&#x7C7B;&#x578B;&#x65F6;&#xFF0C;<code>==</code>&#x548C;<code>===</code>&#x8FD0;&#x7B97;&#x7B26;&#x7684;&#x884C;&#x4E3A;&#x662F;&#x6CA1;&#x6709;&#x533A;&#x522B;&#x7684;&#x3002;</p>
+<p><strong>== &#x8FD0;&#x7B97;&#x7B26;&#x7684;&#x5F3A;&#x5236;&#x8F6C;&#x6362;&#x89C4;&#x5219;</strong></p>
+<table>
+<thead>
+<tr>
+<th>&#x53C2;&#x6570;&#x7C7B;&#x578B;1</th>
+<th>&#x53C2;&#x6570;&#x7C7B;&#x578B;2</th>
+<th>&#x5F3A;&#x5236;&#x8F6C;&#x6362;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>null</td>
+<td>undefined</td>
+<td>&#x4E0D;&#x8F6C;&#x6362;&#xFF0C;&#x603B;&#x662F;&#x8FD4;&#x56DE; true</td>
+</tr>
+<tr>
+<td>null &#x6216; undefined</td>
+<td>&#x5176;&#x4ED6;&#x4EFB;&#x4F55;&#x975E; null &#x6216; undefined &#x7684;&#x7C7B;&#x578B;</td>
+<td>&#x4E0D;&#x8F6C;&#x6362;&#xFF0C;&#x603B;&#x662F;&#x8FD4;&#x56DE; false</td>
+</tr>
+<tr>
+<td>&#x539F;&#x59CB;&#x7C7B;&#x578B;&#xFF1A;string&#x3001;number &#x6216; boolean</td>
+<td>Date &#x5BF9;&#x8C61;</td>
+<td>&#x5C06;&#x539F;&#x59CB;&#x7C7B;&#x578B;&#x8F6C;&#x6362;&#x4E3A;&#x6570;&#x5B57;&#xFF1B;&#x5C06; Date &#x5BF9;&#x8C61;&#x8F6C;&#x6362;&#x4E3A;&#x539F;&#x59CB;&#x7C7B;&#x578B;&#xFF08;&#x4F18;&#x5148;&#x5C1D;&#x8BD5; toString &#x65B9;&#x6CD5;&#xFF0C;&#x518D;&#x5C1D;&#x8BD5; valueOf &#x65B9;&#x6CD5;&#xFF09;</td>
+</tr>
+<tr>
+<td>&#x539F;&#x59CB;&#x7C7B;&#x578B;&#xFF1A;string&#x3001;number &#x6216; boolean</td>
+<td>&#x975E; Date &#x5BF9;&#x8C61;</td>
+<td>&#x5C06;&#x539F;&#x59CB;&#x7C7B;&#x578B;&#x8F6C;&#x6362;&#x4E3A;&#x6570;&#x5B57;&#xFF1B;&#x5C06; &#x975E; Date &#x5BF9;&#x8C61;&#x8F6C;&#x6362;&#x4E3A;&#x539F;&#x59CB;&#x7C7B;&#x578B;&#xFF08;&#x4F18;&#x5148;&#x5C1D;&#x8BD5; valueOf &#x65B9;&#x6CD5;&#xFF0C;&#x518D;&#x5C1D;&#x8BD5; toString &#x65B9;&#x6CD5;&#xFF09;</td>
+</tr>
+<tr>
+<td>&#x539F;&#x59CB;&#x7C7B;&#x578B;&#xFF1A;string&#x3001;number &#x6216; boolean</td>
+<td>&#x539F;&#x59CB;&#x7C7B;&#x578B;&#xFF1A;string&#x3001;number &#x6216; boolean</td>
+<td>&#x5C06;&#x539F;&#x59CB;&#x7C7B;&#x578B;&#x8F6C;&#x6362;&#x4E3A;&#x6570;&#x5B57;</td>
+</tr>
+</tbody>
+</table>
 
                     
                     </section>

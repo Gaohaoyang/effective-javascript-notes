@@ -57,7 +57,7 @@
         data-chapter-title="了解分号插入的局限"
         data-filepath="chapter1/section1.6.md"
         data-basepath=".."
-        data-revision="Mon Jan 11 2016 17:48:13 GMT+0800 (中国标准时间)"
+        data-revision="Tue Jan 12 2016 21:12:44 GMT+0800 (中国标准时间)"
         data-innerlanguage="">
     
 
@@ -282,6 +282,101 @@
                     <section class="normal" id="section-">
                     
                         <h1 id="&#x7B2C;6&#x6761;-&#x4E86;&#x89E3;&#x5206;&#x53F7;&#x63D2;&#x5165;&#x7684;&#x5C40;&#x9650;">&#x7B2C;6&#x6761; &#x4E86;&#x89E3;&#x5206;&#x53F7;&#x63D2;&#x5165;&#x7684;&#x5C40;&#x9650;</h1>
+<ul>
+<li>&#x4EC5;&#x5728; <code>}</code> &#x6807;&#x8BB0;&#x4E4B;&#x524D;&#x3001;&#x4E00;&#x884C;&#x7684;&#x7ED3;&#x675F;&#x548C;&#x7A0B;&#x5E8F;&#x7684;&#x7ED3;&#x5C3E;&#x5904;&#x63D2;&#x5165;&#x5206;&#x53F7;&#x3002;</li>
+<li>&#x4EC5;&#x5728;&#x7D27;&#x63A5;&#x7740;&#x7684;&#x6807;&#x8BB0;&#x4E0D;&#x80FD;&#x88AB;&#x89E3;&#x6790;&#x7684;&#x65F6;&#x5019;&#x63D2;&#x5165;&#x5206;&#x53F7;&#x3002;</li>
+<li>&#x5728;&#x4EE5;<code>(</code>,<code>[</code>,<code>+</code>,<code>-</code>,<code>/</code>&#x5B57;&#x7B26;&#x5F00;&#x5934;&#x7684;&#x8BED;&#x53E5;&#x524D;&#x51B3;&#x4E0D;&#x80FD;&#x7701;&#x7565;&#x5206;&#x53F7;&#x3002;</li>
+<li>&#x5F53;&#x811A;&#x672C;&#x94FE;&#x63A5;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5728;&#x811A;&#x672C;&#x4E4B;&#x95F4;&#x663E;&#x793A;&#x7684;&#x63D2;&#x5165;&#x5206;&#x53F7;&#x3002;</li>
+<li>&#x5728; <code>return</code>,<code>throw</code>,<code>break</code>,<code>continue</code>,<code>++</code>,<code>--</code> &#x7684;&#x53C2;&#x6570;&#x4E4B;&#x524D;&#x7EDD;&#x4E0D;&#x80FD;&#x6362;&#x884C;&#x3002;</li>
+<li>&#x5206;&#x53F7;&#x4E0D;&#x80FD;&#x4F5C;&#x4E3A; <code>for</code> &#x5FAA;&#x73AF;&#x7684;&#x5934;&#x90E8;&#x6216;&#x7A7A;&#x8BED;&#x53E5;&#x7684;&#x5206;&#x9694;&#x7B26;&#x800C;&#x88AB;&#x63D2;&#x5165;&#x51FA;&#x3002;</li>
+</ul>
+<hr>
+<p>JavaScript &#x7684;&#x81EA;&#x52A8;&#x5206;&#x53F7;&#x63D2;&#x5165;&#xFF08;automatic semicolon insertion&#xFF09;&#x6280;&#x672F;&#xFF0C;&#x80FD;&#x63A8;&#x65AD;&#x51FA;&#x67D0;&#x4E9B;&#x4E0A;&#x4E0B;&#x6587;&#x4E2D;&#x7701;&#x7565;&#x7684;&#x5206;&#x53F7;&#xFF0C;&#x7136;&#x540E;&#x6709;&#x6548;&#x5730;&#x81EA;&#x52A8;&#x7684;&#x5C06;&#x5206;&#x53F7;&#x201C;&#x63D2;&#x5165;&#x201D;&#x5230;&#x7A0B;&#x5E8F;&#x4E2D;&#x3002;&#x4F8B;&#x5982;&#x4E0B;&#x9762;&#x7684;&#x4EE3;&#x7801;&#x662F;&#x80FD;&#x6B63;&#x5E38;&#x5DE5;&#x4F5C;&#x7684;&#x3002;</p>
+<pre><code class="lang-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Point</span>(<span class="hljs-params">x,y</span>) </span>{
+    <span class="hljs-keyword">this</span>.x = x || <span class="hljs-number">0</span>
+    <span class="hljs-keyword">this</span>.y = y || <span class="hljs-number">0</span>
+}
+</code></pre>
+<ul>
+<li><strong>&#x4EC5;&#x5728; <code>}</code> &#x6807;&#x8BB0;&#x4E4B;&#x524D;&#x3001;&#x4E00;&#x884C;&#x7684;&#x7ED3;&#x675F;&#x548C;&#x7A0B;&#x5E8F;&#x7684;&#x7ED3;&#x5C3E;&#x5904;&#x63D2;&#x5165;&#x5206;&#x53F7;&#x3002;</strong></li>
+</ul>
+<p>&#x610F;&#x601D;&#x662F;&#x53EA;&#x80FD;&#x5728;&#x4E00;&#x884C;&#x3001;&#x4E00;&#x4E2A;&#x4EE3;&#x7801;&#x5757;&#x6216;&#x4E00;&#x6BB5;&#x7A0B;&#x5E8F;&#x7ED3;&#x675F;&#x7684;&#x5730;&#x65B9;&#x7701;&#x7565;&#x5206;&#x53F7;&#x3002;</p>
+<ul>
+<li><strong>&#x4EC5;&#x5728;&#x7D27;&#x63A5;&#x7740;&#x7684;&#x6807;&#x8BB0;&#x4E0D;&#x80FD;&#x88AB;&#x89E3;&#x6790;&#x7684;&#x65F6;&#x5019;&#x63D2;&#x5165;&#x5206;&#x53F7;&#x3002;</strong></li>
+</ul>
+<p>&#x4F8B;&#x5982;&#xFF1A;</p>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> x
+a = b
+(f())
+</code></pre>
+<p>&#x4F1A;&#x88AB;&#x89E3;&#x6790;&#x4E3A;&#xFF1A;</p>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> x
+a = b(f())
+</code></pre>
+<p>&#x8FD9;&#x4E5F;&#x5F15;&#x51FA;&#x4E86;&#xFF1A;</p>
+<ul>
+<li><strong>&#x5728;&#x4EE5;<code>(</code>,<code>[</code>,<code>+</code>,<code>-</code>,<code>/</code>&#x5B57;&#x7B26;&#x5F00;&#x5934;&#x7684;&#x8BED;&#x53E5;&#x524D;&#x51B3;&#x4E0D;&#x80FD;&#x7701;&#x7565;&#x5206;&#x53F7;&#x3002;</strong></li>
+</ul>
+<p>&#x6240;&#x4EE5;&#x4E0A;&#x8FF0;&#x4EE3;&#x7801;&#x5E94;&#x8BE5;&#x6539;&#x4E3A;&#xFF1A;</p>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> x
+a = b
+;(f())
+</code></pre>
+<ul>
+<li><strong>&#x5F53;&#x811A;&#x672C;&#x94FE;&#x63A5;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5728;&#x811A;&#x672C;&#x4E4B;&#x95F4;&#x663E;&#x793A;&#x7684;&#x63D2;&#x5165;&#x5206;&#x53F7;&#x3002;</strong></li>
+</ul>
+<p>&#x4E3B;&#x8981;&#x907F;&#x514D;&#x5982;&#x4E0B;&#x60C5;&#x51B5;</p>
+<pre><code class="lang-js"><span class="hljs-comment">//a.js</span>
+(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+
+})()
+<span class="hljs-comment">//b.js</span>
+(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+
+})()
+</code></pre>
+<p>&#x5F53;&#x6BCF;&#x4E2A;&#x6587;&#x4EF6;&#x4F5C;&#x4E3A;&#x5355;&#x72EC;&#x7684;&#x7A0B;&#x5E8F;&#x52A0;&#x8F7D;&#x65F6;&#xFF0C;&#x4F1A;&#x88AB;&#x89E3;&#x6790;&#x4E3A;&#xFF1A;</p>
+<pre><code class="lang-js">(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+
+})()(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+
+})()
+</code></pre>
+<p>&#x6B63;&#x786E;&#x505A;&#x6CD5;&#x662F;&#xFF1A;</p>
+<pre><code class="lang-js"><span class="hljs-comment">//a.js</span>
+;(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+
+})()
+<span class="hljs-comment">//b.js</span>
+;(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+
+})()
+</code></pre>
+<ul>
+<li><strong>&#x5728; <code>return</code>,<code>throw</code>,<code>break</code>,<code>continue</code>,<code>++</code>,<code>--</code> &#x7684;&#x53C2;&#x6570;&#x4E4B;&#x524D;&#x7EDD;&#x4E0D;&#x80FD;&#x6362;&#x884C;&#x3002;</strong></li>
+</ul>
+<pre><code class="lang-js"><span class="hljs-keyword">return</span> {};<span class="hljs-comment">//&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x65B0;&#x5BF9;&#x8C61;</span>
+</code></pre>
+<p>&#x4F46;&#x4E0B;&#x9762;&#x7684;&#x4EE3;&#x7801;</p>
+<pre><code class="lang-js"><span class="hljs-keyword">return</span>
+{};
+</code></pre>
+<p>&#x4F1A;&#x88AB;&#x89E3;&#x6790;&#x4E3A;3&#x6761;&#x72EC;&#x7ACB;&#x8BED;&#x53E5;&#xFF1A;</p>
+<pre><code class="lang-js"><span class="hljs-keyword">return</span>;
+{}
+;
+</code></pre>
+<p>&#x5373;&#xFF0C;return &#x5173;&#x952E;&#x5B57;&#x540E;&#x7684;&#x6362;&#x884C;&#x4F1A;&#x5F3A;&#x5236;&#x81EA;&#x52A8;&#x63D2;&#x5165;&#x5206;&#x53F7;&#x3002;</p>
+<ul>
+<li><strong>&#x5206;&#x53F7;&#x4E0D;&#x80FD;&#x4F5C;&#x4E3A; <code>for</code> &#x5FAA;&#x73AF;&#x7684;&#x5934;&#x90E8;&#x6216;&#x7A7A;&#x8BED;&#x53E5;&#x7684;&#x5206;&#x9694;&#x7B26;&#x800C;&#x88AB;&#x63D2;&#x5165;&#x51FA;&#x3002;</strong></li>
+</ul>
+<p>&#x4E0B;&#x9762;&#x7684;&#x4EE3;&#x7801;&#x89E3;&#x6790;&#x9519;&#x8BEF;&#x3002;</p>
+<pre><code class="lang-js"><span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>
+    i &lt; array.length
+    i++) {
+    array[i]
+}
+</code></pre>
 
                     
                     </section>
