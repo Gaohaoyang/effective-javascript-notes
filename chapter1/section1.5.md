@@ -15,5 +15,5 @@
 null  | undefined | 不转换，总是返回 true
 null 或 undefined | 其他任何非 null 或 undefined 的类型 | 不转换，总是返回 false
 原始类型：string、number 或 boolean | Date 对象 | 将原始类型转换为数字；将 Date 对象转换为原始类型（优先尝试 toString 方法，再尝试 valueOf 方法）
-原始类型：string、number 或 boolean | 非 Date 对象 | 将原始类型转换为数字；将 非 Date 对象转换为原始类型（优先尝试 valueOf 方法，再尝试 toString 方法）
+原始类型：string、number 或 boolean | 非 Date 对象 | 将原始类型转换为数字；将非 Date 对象转换为原始类型（优先尝试 valueOf 方法，再尝试 toString 方法）
 原始类型：string、number 或 boolean | 原始类型：string、number 或 boolean | 将原始类型转换为数字
