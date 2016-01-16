@@ -11,7 +11,7 @@
 
 * [变量作用域](chapter2/README.md)
   * [尽量少用全局对象](chapter2/section2.1.md)
-  * [始终声明局部变量]()
+  * [始终声明局部变量](chapter2/section2.2.md)
   * [避免使用 with]()
   * [熟练掌握闭包]()
   * [理解变量声明提升]()
