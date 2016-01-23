@@ -2,7 +2,9 @@
     "plugins": [
         "disqus",
         "github",
-        "ga"
+        "ga",
+        "splitter",
+        "anchors"
     ],
     "pluginsConfig": {
         "disqus": {
